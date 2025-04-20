@@ -1,38 +1,28 @@
 "use client";
-
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { authClient } from "@/lib/client";
 import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { useRouter } from "next/navigation";
-import { formSchema } from "@/schema";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import Link from "next/link";
+import {
+  Form,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { authClient } from "@/lib/client";
+import { formSchema } from "@/schema";
 
-export default function Home() {
-  return (
-    <div className="min-h-screen w-full flex items-center justify-center">
-      <SignIn />
-    </div>
-  );
-}
-
-function SignIn() {
+export default function SignUp() {
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -51,15 +41,17 @@ function SignIn() {
 
     const { email, password } = values;
 
-    await authClient.signIn.email(
+    await authClient.signUp.email(
       {
         email, // user email address
         password, // user password -> min 8 characters by default,
+        name: "test",
+        callbackURL: "/dashboard", // A URL to redirect to after the user verifies their email (optional)
       },
       {
         onSuccess: () => {
-          // redirect to the dashboard or sign in page
           router.push("/dashboard");
+          //redirect to the dashboard or sign in page
         },
         onError: (ctx) => {
           // display the error message
@@ -71,7 +63,7 @@ function SignIn() {
 
   return (
     <Card className="min-w-sm">
-      <CardHeader>Sign In</CardHeader>
+      <CardHeader>Sign Up</CardHeader>
       <CardContent>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -104,11 +96,8 @@ function SignIn() {
           </form>
         </Form>
       </CardContent>
-      <CardFooter className="flex justify-between">
-        <Button type="submit">Login</Button>
-        <Button variant={'link'} asChild>
-          <Link href="/sign-up">Sign Up</Link>
-        </Button>
+      <CardFooter>
+        <Button type="submit">Sign Up</Button>
       </CardFooter>
     </Card>
   );
