@@ -71,10 +71,10 @@ function SignIn() {
 
   return (
     <Card className="min-w-sm">
-      <CardHeader>Sign In</CardHeader>
-      <CardContent>
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <CardHeader>Sign In</CardHeader>
+          <CardContent className="space-y-8">
             <FormField
               control={form.control}
               name="email"
@@ -101,15 +101,15 @@ function SignIn() {
                 </FormItem>
               )}
             />
-          </form>
-        </Form>
-      </CardContent>
-      <CardFooter className="flex justify-between">
-        <Button type="submit">Login</Button>
-        <Button variant={'link'} asChild>
-          <Link href="/sign-up">Sign Up</Link>
-        </Button>
-      </CardFooter>
+          </CardContent>
+          <CardFooter className="flex justify-between">
+            <Button type="submit">Login</Button>
+            <Button variant={"link"} asChild>
+              <Link href="/sign-up">Sign Up</Link>
+            </Button>
+          </CardFooter>
+        </form>
+      </Form>
     </Card>
   );
 }

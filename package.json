@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+    "docker:up": "docker-compose up -d",
     "build": "next build",
     "generate:tables": "npx @better-auth/cli generate",
     "migrate": "npx @better-auth/cli migrate",
@@ -23,6 +24,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.55.0",
+    "redis": "^4.7.0",
     "tailwind-merge": "^3.2.0",
     "zod": "^3.24.3"
   },
@@ -33,6 +35,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/redis": "^4.0.10",
     "eslint": "^9",
     "eslint-config-next": "15.3.1",
     "tailwindcss": "^4",

@@ -4,12 +4,7 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import {
   Form,
   FormField,
@@ -63,10 +58,10 @@ export default function SignUp() {
 
   return (
     <Card className="min-w-sm">
-      <CardHeader>Sign Up</CardHeader>
-      <CardContent>
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <CardHeader>Sign Up</CardHeader>
+          <CardContent className="space-y-8">
             <FormField
               control={form.control}
               name="email"
@@ -93,12 +88,10 @@ export default function SignUp() {
                 </FormItem>
               )}
             />
-          </form>
-        </Form>
-      </CardContent>
-      <CardFooter>
-        <Button type="submit">Sign Up</Button>
-      </CardFooter>
+            <Button type="submit">Sign Up</Button>
+          </CardContent>
+        </form>
+      </Form>
     </Card>
   );
 }
