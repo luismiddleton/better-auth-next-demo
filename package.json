@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
     "build": "next build",
     "generate:tables": "npx @better-auth/cli generate",
     "migrate": "npx @better-auth/cli migrate",
