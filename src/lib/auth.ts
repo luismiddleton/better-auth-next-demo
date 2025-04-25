@@ -3,12 +3,14 @@ import { nextCookies } from "better-auth/next-js";
 import { passkey } from "better-auth/plugins/passkey";
 import Database from "better-sqlite3";
 import { redis } from "@/lib/redis";
+import { openAPI } from "better-auth/plugins";
 
 await redis.connect();
 
 export const auth = betterAuth({
   database: new Database("./sqlite.db"),
   plugins: [
+    openAPI(),
     nextCookies(),
     passkey({
       rpID: "localhost",
