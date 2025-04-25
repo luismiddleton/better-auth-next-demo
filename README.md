@@ -7,7 +7,7 @@
 - [ ] 2FA
 - [ ] Magic Link
 - [ ] OTP
-- [ ] Passkeys
+- [X] Passkeys
 
 ## Learn More
 

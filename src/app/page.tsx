@@ -23,6 +23,7 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import Link from "next/link";
+import SignInPasskey from "@/components/buttons/SignInPasskey";
 
 export default function Home() {
   return (
@@ -71,10 +72,10 @@ function SignIn() {
 
   return (
     <Card className="min-w-sm">
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          <CardHeader>Sign In</CardHeader>
-          <CardContent className="space-y-8">
+      <CardHeader>Sign In</CardHeader>
+      <CardContent className="space-y-8">
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <FormField
               control={form.control}
               name="email"
@@ -95,21 +96,28 @@ function SignIn() {
                 <FormItem>
                   <FormLabel>Password</FormLabel>
                   <FormControl>
-                    <Input type="password" {...field} />
+                    <Input
+                      type="password"
+                      autoComplete="current-password webauthn"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-          </CardContent>
-          <CardFooter className="flex justify-between">
-            <Button type="submit">Login</Button>
-            <Button variant={"link"} asChild>
-              <Link href="/sign-up">Sign Up</Link>
-            </Button>
-          </CardFooter>
-        </form>
-      </Form>
+            <div className="grid gap-2">
+              <Button type="submit">Login</Button>
+            </div>
+          </form>
+        </Form>
+      </CardContent>
+      <CardFooter className="justify-between">
+        <SignInPasskey />
+        <Button variant={"link"} asChild>
+          <Link href="/sign-up">Sign Up</Link>
+        </Button>
+      </CardFooter>
     </Card>
   );
 }
