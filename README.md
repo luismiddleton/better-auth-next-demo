@@ -9,6 +9,12 @@
 - [ ] OTP
 - [X] Passkeys
 
+## Migrate
+To migrate database changes, run the following script:
+```shell
+npm run migrate
+```
+
 ## Learn More
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
