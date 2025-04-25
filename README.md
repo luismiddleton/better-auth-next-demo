@@ -8,6 +8,7 @@
 - [ ] Magic Link
 - [ ] OTP
 - [X] Passkeys
+- [ ] OpenTelemetry
 
 ## Getting Started
 
