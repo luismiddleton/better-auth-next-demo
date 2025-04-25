@@ -9,6 +9,14 @@
 - [ ] OTP
 - [X] Passkeys
 
+## Getting Started
+
+### Create a Database
+Created a SQLite database at the root of the project:
+```shell
+touch sqlite.db
+```
+
 ## Migrate
 To migrate database changes, run the following script:
 ```shell
