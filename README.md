@@ -9,6 +9,7 @@
 - [ ] OTP
 - [X] Passkeys
 - [ ] OpenTelemetry
+- [ ] Rate Limiting
 
 ## Getting Started
 
